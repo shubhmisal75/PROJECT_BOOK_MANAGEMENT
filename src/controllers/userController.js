@@ -2,6 +2,7 @@ const userModel = require('../models/userModel');
 const validateBody = require('../validation/validation');
 const jwt = require("jsonwebtoken");
 
+//--------------------------------------------------------------------------------//
 
 const userRegistration = async (req, res) => {
     try {
@@ -61,6 +62,7 @@ const userRegistration = async (req, res) => {
     }
 }
 
+//--------------------------------------------------------------------------------------------//
 
 const userLogin = async (req, res) => {
     try {
@@ -97,6 +99,7 @@ const userLogin = async (req, res) => {
     }
 };
 
+//---------------------------------------------------------------------------------//
 
 module.exports.userRegistration = userRegistration;
 module.exports.userLogin = userLogin;

@@ -4,7 +4,8 @@ const jwt = require('jsonwebtoken')
 
 const getUserDetails = async function (req, res, next) {
     try {
-        let token = req.headers['user-login-key']  //-----// handling of invalid token
+    
+        let token = req.headers['user-login-key']  
         if (!token) {
             return res.status(400).send({ status: false, message: 'You are not logged in, Please login to proceed your request' })
         }
@@ -15,11 +16,12 @@ const getUserDetails = async function (req, res, next) {
         } else {
             return res.status(400).send({ status: false, message: 'Oops...token is not valid' })
         }
-    } catch (error) {
+    } 
+    catch (error) {
         return res.status(500).send({ status: false, msg: error.message })
     }
 }
 
-//-----------------------------------------------------------------------------//
+
 module.exports.getUserDetails = getUserDetails;
 //-----------------------------------------------------------------------------//

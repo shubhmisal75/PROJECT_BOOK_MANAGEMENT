@@ -61,7 +61,7 @@ const createBook = async (req, res) => {
     }
 }
 
-
+//--------------------------------------------------------------------------------//
 const getQueryBooks = async (req, res) => {
     try {
         let myQuery = req.query;
@@ -88,7 +88,7 @@ const getQueryBooks = async (req, res) => {
     }
 }
 
-
+//--------------------------------------------------------------------------------------//
 const getParamsBook = async (req, res) => {
     try {
         let paramsId = req.params.bookId
@@ -109,6 +109,8 @@ const getParamsBook = async (req, res) => {
         return res.status(500).send({ status: false, msg: err.message });
     }
 }
+
+//---------------------------------------------------------------------------------------//
 
 
 const updateBookById = async (req, res) => {
@@ -171,6 +173,7 @@ const updateBookById = async (req, res) => {
     }
 };
 
+//---------------------------------------------------------------------------------//
 
 const deleteBookById = async (req, res) => {
     try {
@@ -209,19 +212,3 @@ module.exports.deleteBookById = deleteBookById;
 
 
 
-const testBoookCount = async (req, res) => {
-    try {
-        let checkId = req.body.userId
-        let totalCount = await bookModel.find({ userId: checkId }).count()
-        let totalBook = await bookModel.find({ userId: checkId })
-        if (totalCount) {
-            res.send({message: "success", data: {total_Boooks: totalCount, books_Are: totalBook}})
-        } else {
-            res.send({message: "no boook find"})
-        }
-    }
-    catch (err) {
-        return res.status(500).send({ message: err.message });
-    }
-}
-module.exports.testBoookCount = testBoookCount;

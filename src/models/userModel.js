@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+//----------------------------------------------------------------------//
+
 const userSchema = new mongoose.Schema({
 
     title: {
@@ -31,6 +33,7 @@ const userSchema = new mongoose.Schema({
         lowercase: true,
         trim: true,
     },
+
     address: {
         street: {
             type: String,
@@ -49,4 +52,5 @@ const userSchema = new mongoose.Schema({
     { timestamps: true }
 )
 
+//-----------------------------------------------------------------------------//
 module.exports = mongoose.model('userModel', userSchema)
